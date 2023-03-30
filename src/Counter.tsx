@@ -17,7 +17,14 @@ function Counter({ initialValue }: Props) {
 	};
 
 	return (
-		<div style={{ display: "flex", justifyContent: "center" }}>
+		<div
+			style={{
+				display: "flex",
+				justifyContent: "center",
+				marginLeft: 40,
+				maxHeight: "90px",
+			}}
+		>
 			<button onClick={decCount}>
 				<h2>-</h2>
 			</button>
