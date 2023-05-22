@@ -3,40 +3,85 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-image: linear-gradient(58.2deg, rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7%);
+  min-height: 100vh; /* Set a minimum height of the viewport height */
+  display: flex; /* Add display flex to center the container vertically */
+  align-items: center; /* Center the container vertically */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 400px;
+  border: 2px solid #000000;
+  margin: auto;
+  border-radius: 8px;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000; /* Update to a readable color value */
+  text-transform: uppercase;
+  padding-bottom: 4%;
 }
 
-.card {
-  padding: 2em;
+input,
+select {
+  margin-top: 10px; /* Use a fixed value for margin-top */
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(135, 44, 44, 0.2);
+  padding: 5px;
+  background-color: black;
+  font: 1em sans-serif;
 }
 
-.read-the-docs {
-  color: #888;
+.birth {
+  display: flex;
+  gap: 6rem;
+}
+
+.conditions {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 0;
+}
+
+.conditions input[type=checkbox] {
+  margin: 0;
+  width: auto;
+}
+
+.btn-grad {
+  background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%);
+  margin: 10px;
+  padding: 10px 60px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 5px #eee;
+  border-radius: 10px;
+  display: block;
+  align-self: center;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
