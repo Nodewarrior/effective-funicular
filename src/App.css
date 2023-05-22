@@ -3,10 +3,12 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-image: linear-gradient(58.2deg, rgba(40,91,212,0.73) -3%, rgba(171,53,163,0.45) 49.3%, rgba(255,204,112,0.37) 97.7%);
-  min-height: 100vh; /* Set a minimum height of the viewport height */
-  display: flex; /* Add display flex to center the container vertically */
-  align-items: center; /* Center the container vertically */
+  background: #1FA2FF;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100vh;
+  display: flex;
+  align-items: center; 
 }
 
 .container {

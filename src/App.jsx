@@ -1,69 +1,65 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import AstrologyChart from './components/AstrologyChart'
+import { mockData } from './AstroData'
+import './App.css';
 
 function App() {
   const [formData, setFormData] = useState({
     name: 'Sanji Vinsmoke',
     gender: 'male',
     dateOfBirth: '1990-01-01',
-    timeOfBirth: '12:00 PM',
+    timeOfBirth: '12:00',
     location: 'New York',
+    email: 'Please type you email id',
+    agree: false
   });
+  const [chartData, setChartData] = useState(null);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    setFormData(prevData => ({ ...prevData, [event.target.name]: value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //handle submission here
-    console.log(formData);
-  }
+    setChartData(mockData)
+  };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <label htmlFor='name'>
-        Name:
-        <input type="text" id="name" value={formData.name} onChange={handleChange}/>
-      </label>
-      <label htmlFor='gender'>
-        Gender:
-        <select id="gender" value={formData.gender} onChange={handleChange}>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-      </label>
-      <div className="birth">
-        <label htmlFor='date'>
-          Date of Birth:
-          <input type="text" id="date" />
+    <>
+      <form className="container" onSubmit={handleSubmit}>
+        <label htmlFor='name'>Name:
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange}/>
         </label>
-        <label htmlFor='time'>
-          Time of Birth:
-          <input type="text" id="time" />
+        <label htmlFor='gender'>Gender:
+          <select id="gender" name="gender" value={formData.gender} onChange={handleChange}>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
         </label>
-      </div>
-      <label htmlFor='birthLocation'>
-        Birth Location:
-        <input type="text" id="birthLocation" value={formData.location} onChange={handleChange}/>
-      </label>
-      <label htmlFor="emailId">
-        Email: 
-        <input type="email" id="emailId" />
-      </label>
-      <label htmlFor="agree" className='conditions'>
-        <input type="checkbox" id="agree" />
-        <p>I agree to the terms and conditions</p>
-      </label>
-      <label htmlFor="submit">
+        <div className="birth">
+          <label htmlFor='dateOfBirth'>Date of Birth:
+            <input type="date" id="dateOfBirth" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange}/>
+          </label>
+          <label htmlFor='timeOfBirth'>Time of Birth:
+            <input type="time" id="timeOfBirth" name="timeOfBirth" value={formData.timeOfBirth} onChange={handleChange}/>
+          </label>
+        </div>
+        <label htmlFor='location'>Birth Location:
+          <input type="text" id="location" name="location" value={formData.location} onChange={handleChange}/>
+        </label>
+        <label htmlFor="email">Email: 
+          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}/>
+        </label>
+        <label htmlFor="agree" className='conditions'>
+          <input type="checkbox" id="agree" name="agree" checked={formData.agree} onChange={handleChange}/>
+          <p>I agree to the terms and conditions</p>
+        </label>
         <button type="submit" className='btn-grad'>Get Details</button>
-      </label>
-    </form>
-  )
+      </form>
+      {chartData && <AstrologyChart data={chartData}/>}
+    </>
+  );
 }
 
-export default App
+export default App;
